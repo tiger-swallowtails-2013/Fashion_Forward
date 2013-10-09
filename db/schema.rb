@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20131009180320) do
     t.integer  "questions_id"
     t.integer  "users_id"
     t.string   "body"
-    t.boolean  "YN"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,8 @@
 Fashion::Application.routes.draw do
+  resources :question, only: [:index, :show] do
+    resources :answer, only: [:index, :show]
+  end
+  resources :user
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +43,7 @@ Fashion::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
