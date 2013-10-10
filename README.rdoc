@@ -1,28 +1,11 @@
-== README
+Hi.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fashion Forward is an Overflow for fashion advice.  The idea is users will ask questions about their outfit by
+posting a link from imgur.  Logged in uses can vote, "You are jammin'!" or "Clean your mirror!" to offer advice
+on the question poster's fashion choice.
 
-Things you may want to cover:
+Users>>Questions>>Answers.
 
-* Ruby version
+We have test coverage of about half our tests.  Users show page is failing.  Questions having many answers is failing.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+We need user sessions complete and an answers controller.
