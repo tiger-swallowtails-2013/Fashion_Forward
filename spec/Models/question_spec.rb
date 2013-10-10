@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "a question" do
+describe "questions controller" do
 
   let(:question1) {FactoryGirl.build(:question)}
   let(:user1) {FactoryGirl.build(:user)}
@@ -10,15 +10,36 @@ describe "a question" do
     question1.user_id = user1.id
     expect(question1).to be_valid
   end
-  # Answer.all isn't working even though answer1 is an
-  #Answer object
+
+  it "question must contain title" do
+    question = Question.new
+    question.valid?
+    expect(question.errors).to have_key(:title)
+  end
+
+  it "question must contain body" do
+    question = Question.new(:title => "something")
+    question.valid?
+    expect(question.errors).to have_key(:body)
+  end
+
+  it "question must contain user_id" do
+    question = Question.new
+    question.valid?
+    expect(question.errors).to have_key(:user_id)
+  end
 
   # it "question can have more than one answer" do
-  #   question1.id = 1
+  #   question = Question.new(:title => 'me the title', :body => 'me some text', :user => 'user12')
+  #   question.id = 1
+  #   p question
+  #   answer1 = Answer.new(:body => 'me the answer', :user_id => 12, :user => 'user12')
   #   answer1.question_id = 1
-  #   answer2.question_id = 1
-  #   p answer1
-  #   p "answers.question_id:"
-  #   expect(question1.answers.length).to eql(2)
+  #   p answer1.save!
+  #   p question.save!
+  #   p Question.last
+  #   p Answer.last
+  #   expect(Answer.all.question_id.count).to be > 1
   # end
+
 end
