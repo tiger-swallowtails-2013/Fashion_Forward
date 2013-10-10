@@ -1,13 +1,17 @@
 Fashion::Application.routes.draw do
-resources :users
-root "static_pages#home"
-match '/signup', to: 'users#new', via: 'get'
+  resources :users
+  match '/signup', to: 'users#new', via: 'get'
+  resources :questions, only: [:index, :show, :new, :create] do
+    resources :answers, only: [:index, :show, :new]
+  end
+
+  root :to => 'questions#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
