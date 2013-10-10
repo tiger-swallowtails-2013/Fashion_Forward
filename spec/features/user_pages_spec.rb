@@ -7,3 +7,11 @@ describe"Sign_up Page" do
   end
 end
 
+describe "Show Page" do
+  let(:valid_params) { {:user => FactoryGirl.attributes_for(:user)} }
+  before {visit user_path(params[:user])}
+  it "should have_content(user.name)" do
+    expect(page).to have_content(user.username)
+  end
+end
+
