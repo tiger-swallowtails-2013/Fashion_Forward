@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
-    p @answer.save
+    @answer.save
 
     if @answer.persisted?
       redirect_to question_answers_path

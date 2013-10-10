@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(params[:question])
-    p params
+    params
     @question.save
 
     if @question.persisted?
