@@ -3,4 +3,5 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
   has_many :users, through: :answers
+  # anyone who's answered is now an associated user
 end

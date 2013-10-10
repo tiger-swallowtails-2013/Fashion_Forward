@@ -2,5 +2,6 @@
   <%= f.label :title %><%= f.text_field :title %><%= @question.errors[:title].join(',') %><br />
   <%= f.label :body %><%= f.text_area :body %><br />
   <%= f.label :user_id %><%= f.text_field :user_id %><br />
+  <!-- remove uers_id field once we have sessions -->
   <%= f.submit %>
 <% end %>
