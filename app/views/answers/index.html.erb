@@ -1,0 +1,12 @@
+<div class = "answers">
+
+	<h1>Answers</h1>
+	<% @answers.each do |answer| %>
+		<%= answer.body %><br>
+	<% end %>
+</div>
+<br>
+
+<div class ="new_answer">
+	<%= link_to "New Answer",new_question_answer_path%>
+</div>

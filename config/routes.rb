@@ -1,8 +1,9 @@
 Fashion::Application.routes.draw do
   resources :users
+
   match '/signup', to: 'users#new', via: 'get'
   resources :questions, only: [:index, :show, :new, :create] do
-    resources :answers, only: [:index, :show, :new]
+    resources :answers, only: [:index, :show, :new, :create]
   end
 
   root :to => 'questions#index'
