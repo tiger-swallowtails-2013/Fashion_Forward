@@ -1,11 +1,12 @@
 Fashion::Application.routes.draw do
-  root :to => 'questions#index'
-
+  resources :users
+  match '/signup', to: 'users#new', via: 'get'
   resources :questions, only: [:index, :show, :new, :create] do
     resources :answers, only: [:index, :show, :new]
   end
 
-  resources :users
+  root :to => 'questions#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
