@@ -4,29 +4,28 @@ describe "questions controller" do
 
   let(:question1) {FactoryGirl.build(:question)}
   let(:user1) {FactoryGirl.build(:user)}
-  let(:answer1) {FactoryGirl.build(:answer)}
-  let(:answer2) {FactoryGirl.build(:answer)}
+
   it "question exists" do
     question1.user_id = user1.id
     expect(question1).to be_valid
   end
 
   it "question must contain title" do
-    question = Question.new
-    question.valid?
-    expect(question.errors).to have_key(:title)
+    question1.title = nil
+    question1.valid?
+    expect(question1.errors).to have_key(:title)
   end
 
   it "question must contain body" do
-    question = Question.new(:title => "something")
-    question.valid?
-    expect(question.errors).to have_key(:body)
+    question1.body = nil
+    question1.valid?
+    expect(question1.errors).to have_key(:body)
   end
 
   it "question must contain user_id" do
-    question = Question.new
-    question.valid?
-    expect(question.errors).to have_key(:user_id)
+    question1.user_id = nil
+    question1.valid?
+    expect(question1.errors).to have_key(:user_id)
   end
 
   # it "question can have more than one answer" do
