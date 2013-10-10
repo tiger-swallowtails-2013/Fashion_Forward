@@ -1,6 +1,5 @@
 <%= form_for @question do |f| %>
   <%= f.label :title %><%= f.text_field :title %><%= @question.errors[:title].join(',') %><br />
   <%= f.label :body %><%= f.text_area :body %><br />
-  <!-- remove uers_id field once we have sessions -->
   <%= f.submit %>
 <% end %>
