@@ -9,7 +9,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(params[:question])
-    p "*"*1000
     p params
     @question.save
 

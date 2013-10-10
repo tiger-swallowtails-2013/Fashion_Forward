@@ -11,7 +11,6 @@ class AnswersController < ApplicationController
   end
 
   def create
-    p "/"*5000
     @answer = Answer.new(answer_params)
     p @answer.save
 
