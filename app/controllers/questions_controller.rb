@@ -8,9 +8,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(params[:answers])
+    @question = Question.new(params[:question])
+    p "*"*1000
+    p params
+    @question.save
 
-    if @question.save
+    if @question.persisted?
       redirect_to @question
     else
       render 'new'
