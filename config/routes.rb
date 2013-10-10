@@ -1,5 +1,5 @@
 Fashion::Application.routes.draw do
-get "static_pages/home"
+root "static_pages#home"
 resources :users
 match '/signup', to: 'users#new', via: 'get'
 
