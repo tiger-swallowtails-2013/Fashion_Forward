@@ -1,4 +1,8 @@
 Fashion::Application.routes.draw do
+get "static_pages/home"
+resources :users
+match '/signup', to: 'users#new', via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +43,7 @@ Fashion::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
