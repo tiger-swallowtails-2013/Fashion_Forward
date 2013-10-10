@@ -1,0 +1,12 @@
+<div class = "questions">
+
+  <h1>Questions</h1>
+  <% @questions.each do |question| %>
+     <%= link_to question.title, question %><br>
+  <% end %>
+</div>
+
+<br>
+<div class="new_question">
+<%= link_to "New question", new_question_path %>
+</div>

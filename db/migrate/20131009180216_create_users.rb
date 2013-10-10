@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.references :questions
-      t.references :answers
+      t.references :question
+      t.references :answer
       t.string :username
       t.string :password
       t.timestamps
