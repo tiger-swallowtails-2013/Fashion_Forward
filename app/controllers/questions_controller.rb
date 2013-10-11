@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = 1 #change once sessions has been enabled
+
     if @question.save
       redirect_to @question
     else
