@@ -1,8 +1,8 @@
 <div class = "questions">
-
   <h1>Questions</h1>
   <% @questions.each do |question| %>
-     <%= link_to question.title, question %><br>
+    <a href="/questions/<%= question.id %>/answers">
+    <%= question.title %></a><br/>
   <% end %>
 </div>
 

@@ -1,3 +1,6 @@
+<% unless @errors.nil? %>
+  <p><%=@errors%></p>
+<% end %>
 <%= form_tag sessions_path do %>
   <p>
     <%= label_tag :username %><br>

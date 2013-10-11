@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+
   end
 
   def create
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
     if @user
       log_in
     else
+      @errors = "your username did not match your password"
       render "new"
     end
   end

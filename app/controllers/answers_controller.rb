@@ -1,8 +1,9 @@
 class AnswersController < ApplicationController
 
-  
+
   def index
-    @answers = Question.find(params[:question_id]).answers
+    @question = Question.find(params[:question_id])
+    @answers = @question.answers
   end
 
   def new
@@ -12,6 +13,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    @answer.user_id = current_user.id
     @answer.save
 
     if @answer.persisted?
