@@ -8,12 +8,13 @@
 </head>
 <body>
   <div id="nav">
-  <% if current_user %>
-    <%= "Welcome, #{current_user.username}" %><br>
-    <%= link_to 'Logout', logout_path %>
-  <% else %>
-    <%= link_to 'Login', login_path %> or <%= link_to 'Signup', signup_path %>
-  <% end %>
+    <% if current_user %>
+      <%= "Welcome, #{current_user.username}" %><br>
+      <%= link_to 'Logout', logout_path %>
+    <% else %>
+      <%= link_to 'Login', login_path %> or <%= link_to 'Signup', signup_path %>
+    <% end %>
+  </div>
 
 <%= yield %>
 
