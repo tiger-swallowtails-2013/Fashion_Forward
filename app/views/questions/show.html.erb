@@ -1,18 +1,11 @@
 <div>
-<h3>Showing Question <%= @question.id %></h3>
-<strong>Title: </strong><%= @question.title %><br>
-<strong>Body: </strong><%= @question.body %><br>
-<strong>User_id: </strong><%= @question.user_id %><br>
-<strong>Created: </strong><%= @question.created_at %><br>
+  <h3>Showing Question <%= @question.id %></h3>
+  <strong>Title: </strong><%= @question.title %><br>
+  <strong>Body: </strong><%= @question.body %><br>
+  <strong>User_id: </strong><%= @question.user_id %><br>
+  <strong>Created: </strong><%= @question.created_at %><br>
 </div>
-
+<br>
 <div>
-<strong>Answers for this Question:</strong>
-<% @question.answers.each do |answer| %>
-  <%= answer.body %>
-<% end %>
-</div>
-
-<div class="answer">
-  <%= link_to "Add new answer on this question", new_question_answer_path  %>
+  <%= link_to "View all questions", questions_path %>
 </div>

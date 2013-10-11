@@ -1,9 +1,9 @@
 <h1>Questions asked by <%= @user.username %></h1>
-<% @user.questions.each do |question| %>
-<%= link_to question.title, question %><br>
+  <% @user.questions.each do |question| %>
+  <%= link_to question.title, question %><br>
 <% end %>
 
 <h1>Questions answered by <%= @user.username %></h1>
-<% @answers.each do |answer| %>
-<%= link_to answer.question.title, answer.question %><br>
+  <% @answers.each do |answer| %>
+  <%= link_to answer.question.title, answer.question %><br>
 <% end %>
