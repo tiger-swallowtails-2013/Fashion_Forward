@@ -15,26 +15,16 @@ We need user sessions complete and an answers controller.
 
 - Get SEED data
 
+Installing the App
 
-Developer Setup - Running the App:
+  $ bundle          # Install dependencies
+  $ rake db:setup  # Create, migrate, and seed the development database
 
-Run "Bundle" in command line
-  $ bundle
-Create the database
-  $ rake db:create
-Migrate the database
-  $ rake db:migrate
-Seed the database (need to get seeds!)
-  $ rake db:seed
-Run the rails server
-  $ rails s
+Running the App
+  $ rails s         # Run the application
 
-Developer Setup - Testing Environment
-Create the test database
-  $ RAILS_ENV=test rake db:create
-Migrate the database
-  $ RAILS_ENV=test rake db:migrate
-Run tests
+Testing the App
+  $ RAILS_ENV=test rake db:create db:migrate # Create and migrate the test database
   $ rspec
 
 Brought to you by: Sunny, Kiera, David, Nishant and Elmer
