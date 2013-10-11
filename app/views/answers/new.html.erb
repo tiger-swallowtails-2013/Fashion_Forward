@@ -1,0 +1,18 @@
+<br>
+<div class="container">
+  <div>
+    <strong><%= @question.title %></strong><br>
+    <%=@question.body%>
+  </div>
+  <p><strong>Your Response to the Question:</strong></p>
+  <div class= "new_answer">
+    <%= form_for @answer, url: question_answers_path do |f| %>
+      <%= f.text_area :body %><br/>
+      <%=f.hidden_field :question_id, :value => @question.id %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <%= link_to 'View all questions', questions_path %>
+</div>
+
+

@@ -1,0 +1,23 @@
+<div class= "question">
+  <h1>Question</h1>
+  <%= @question.body %>
+</div>
+
+<div class = "answers">
+  <h2>Answers</h2>
+  <% @answers.each do |answer| %>
+    <%= answer.body %><br>
+  <% end %>
+</div>
+
+<% if current_user %>
+  <div class ="new_answer">
+    <%= link_to "New Answer",new_question_answer_path %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "View all questions", questions_path %>
+</div>
+
+

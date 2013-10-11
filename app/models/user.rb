@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  validates :username, :password, presence: true
+  has_secure_password
+
+  validates_presence_of :username
+  validates_uniqueness_of :username
+  validates_confirmation_of :password
+
   has_many :questions
-  has_many :answers, through: :questions
+
 end
