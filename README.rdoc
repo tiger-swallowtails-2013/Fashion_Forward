@@ -9,3 +9,27 @@ Users>>Questions>>Answers.
 We have test coverage of about half our functionality.  Need to change routes to new home page.  Users show page is failing.  Questions having many answers is failing.
 
 We need user sessions complete and an answers controller.
+
+- Get SEED data
+
+
+Developer Setup - Running the App:
+
+Run "Bundle" in command line
+	$ bundle
+Create the database
+	$ rake db:create
+Migrate the database
+	$ rake db:migrate
+Seed the database (need to get seeds!)
+	$ rake db:seed 
+Run the rails server
+	$ rails s
+
+Developer Setup - Testing Environment
+Create the test database
+	$ RAILS_ENV=test rake db:create
+Migrate the database
+	$ RAILS_ENV=test rake db:migrate
+Run tests
+	$ rspec
