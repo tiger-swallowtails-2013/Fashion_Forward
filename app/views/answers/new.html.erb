@@ -1,0 +1,16 @@
+<div class="container">
+Your Response to the Question: <br/>
+<strong><%= @question.title %></strong><br/>
+<%=@question.body%><br/>
+
+<%= form_for @answer, url: question_answers_path do |f| %>
+<%= f.label :body %><%= f.text_area :body %><br/>
+<%= f.label :user_id %><%= f.text_field :user_id %><br />
+<%=f.hidden_field :question_id, :value => @question.id %>
+<%= f.submit %>
+<% end %>
+
+
+</div>
+
+
