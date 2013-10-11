@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
 
   
   def index
-    @answers = Answer.all
+    @answers = Question.find(params[:question_id]).answers
   end
 
   def new
