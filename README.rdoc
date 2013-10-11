@@ -1,12 +1,15 @@
 Hi.
 
-Fashion Forward is an Overflow for fashion advice.  The idea is users will ask questions about their outfit by
-posting a link from imgur.  Logged in uses can vote, "You are jammin'!" or "Clean your mirror!" to offer advice
-on the question poster's fashion choice.
+Fashion Forward is an Overflow for fashion advice.  The idea is users will ask
+questions about their outfit by posting a link from imgur.  Logged in uses can
+vote, "You are jammin'!" or "Clean your mirror!" to offer advice on the
+question poster's fashion choice.
 
-Users>>Questions>>Answers.
+Users >> Questions >> Answers.
 
-We have test coverage of about half our functionality.  Need to change routes to new home page.  Users show page is failing.  Questions having many answers is failing.
+We have test coverage of about half our functionality.  Need to change routes
+to new home page.  Users show page is failing.  Questions having many answers
+is failing.
 
 We need user sessions complete and an answers controller.
 
@@ -16,22 +19,22 @@ We need user sessions complete and an answers controller.
 Developer Setup - Running the App:
 
 Run "Bundle" in command line
-	$ bundle
+  $ bundle
 Create the database
-	$ rake db:create
+  $ rake db:create
 Migrate the database
-	$ rake db:migrate
+  $ rake db:migrate
 Seed the database (need to get seeds!)
-	$ rake db:seed 
+  $ rake db:seed
 Run the rails server
-	$ rails s
+  $ rails s
 
 Developer Setup - Testing Environment
 Create the test database
-	$ RAILS_ENV=test rake db:create
+  $ RAILS_ENV=test rake db:create
 Migrate the database
-	$ RAILS_ENV=test rake db:migrate
+  $ RAILS_ENV=test rake db:migrate
 Run tests
-	$ rspec
+  $ rspec
 
 Brought to you by: Sunny, Kiera, David, Nishant and Elmer
