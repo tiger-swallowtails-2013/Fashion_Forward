@@ -1,5 +1,9 @@
 Fashion::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get 'logout' => 'sessions#destroy', :as => 'logout'
+  get 'login' => 'sessions#new', :as => 'login'
 
   match '/signup', to: 'users#new', via: 'get'
   resources :questions, only: [:index, :show, :new, :create] do
