@@ -17,14 +17,13 @@ We need user sessions complete and an answers controller.
 
 Installing the App
 
-  $ bundle          # Install dependencies
-  $ rake db:setup  # Create, migrate, and seed the development database
+  $ bundle        # Install dependencies
+  $ rake db:setup # Create, migrate, and seed the development database
 
 Running the App
-  $ rails s         # Run the application
+  $ rails s       # Run the application
 
 Testing the App
-  $ RAILS_ENV=test rake db:create db:migrate # Create and migrate the test database
-  $ rspec
+  $ rake          # Prepare the test database and run the tests
 
 Brought to you by: Sunny, Kiera, David, Nishant and Elmer
