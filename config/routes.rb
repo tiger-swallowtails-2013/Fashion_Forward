@@ -9,10 +9,6 @@ Fashion::Application.routes.draw do
     resources :votes, only: [:create]
   end
 
-  resources :answers do
-    resources :votes, only: [:create]
-  end
-
   get 'signup' => 'users#new'
   resources :questions, only: [:index, :show, :new, :create] do
     resources :answers, only: [:index, :show, :new, :create]
