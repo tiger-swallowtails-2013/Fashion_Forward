@@ -33,3 +33,5 @@ Migrate the database
 	$ RAILS_ENV=test rake db:migrate
 Run tests
 	$ rspec
+
+Brought to you by: Sunny, Kiera, David, Nishant and Elmer
