@@ -7,6 +7,7 @@
   <h2>Answers</h2>
   <% @answers.each do |answer| %>
     <%= answer.body %>
+    | Votes: <%= answer.votes.count %>
     <%= button_to "vote", answer_votes_path(answer) %>
     <br/>
   <% end %>
