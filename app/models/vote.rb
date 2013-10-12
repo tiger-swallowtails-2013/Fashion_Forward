@@ -5,6 +5,6 @@ class Vote < ActiveRecord::Base
   belongs_to :user
 
   def first_vote?
-    Vote.where("user_id = ?", self.user_id) && Vote.where("answer_id = ?", self.answer_id).empty?
+    Vote.where("user_id = ?", self.user_id).where("answer_id = ?", self.answer_id).empty?
   end
 end

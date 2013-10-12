@@ -2,6 +2,10 @@ Fashion::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
+  resources :answers do
+    resources :votes, only: [:create]
+  end
+
   get 'logout' => 'sessions#destroy', :as => 'logout'
   get 'login' => 'sessions#new', :as => 'login'
 
