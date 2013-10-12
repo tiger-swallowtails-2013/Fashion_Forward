@@ -5,6 +5,9 @@ Fashion::Application.routes.draw do
   get 'logout' => 'sessions#destroy'
   get 'login' => 'sessions#new'
 
+  resources :answers do
+    resources :votes, only: [:create]
+  end
 
   get 'signup' => 'users#new'
   resources :questions, only: [:index, :show, :new, :create] do
