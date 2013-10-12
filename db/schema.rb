@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20131011193509) do
   end
 
   create_table "questions", force: true do |t|
+    t.integer  "answer_id"
     t.integer  "user_id"
     t.string   "title"
     t.string   "body"
