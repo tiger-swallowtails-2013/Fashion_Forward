@@ -8,7 +8,7 @@
   <% @answers.each do |answer| %>
     <%= answer.body %>
     | Votes: <%= answer.votes.count %>
-    <%= link_to "vote", answer_votes_path(answer), {class:"button"} %>
+    <%= (button_to "vote", answer_votes_path(answer), {class:"button"}) if current_user && current_user.can_vote?(answer) %>
     <br/>
   <% end %>
 </div>
