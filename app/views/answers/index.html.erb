@@ -6,9 +6,13 @@
 <div class = "answers">
   <h2>Answers</h2>
   <% @answers.each do |answer| %>
-    <%= answer.body %><br>
+    <%= answer.body %>
+    <%= button_to "vote", answer_votes_path(answer) %>
+    <br/>
   <% end %>
 </div>
+
+
 
 <% if current_user %>
   <div class ="new_answer">
