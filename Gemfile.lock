@@ -193,6 +193,7 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    validates_email_format_of (1.5.3)
     websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -221,4 +222,5 @@ DEPENDENCIES
   thin
   turbolinks
   uglifier (>= 1.3.0)
+  validates_email_format_of
   yaml_db

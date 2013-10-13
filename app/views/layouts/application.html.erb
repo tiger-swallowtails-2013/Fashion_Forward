@@ -9,6 +9,7 @@
 <body>
   <div id="nav">
     <% if current_user %>
+      <%= image_tag("http://www.gravatar.com/avatar/#{current_user.gravatar_hash}") %>
       <%= "Welcome, #{current_user.username}" %><br>
       <%= link_to 'Logout', logout_path %>
     <% else %>
