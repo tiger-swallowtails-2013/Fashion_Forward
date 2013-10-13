@@ -1,9 +1,13 @@
+require 'digest/md5'
+
 class User < ActiveRecord::Base
   has_secure_password
 
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_confirmation_of :password
+  validates_presence_of :email
+  validates_uniqueness_of :email
 
   has_many :questions
   has_many :votes
@@ -19,5 +23,9 @@ class User < ActiveRecord::Base
 
   def can_vote?(answer)
     !authored_answer?(answer) && not_voted?(answer)
+  end
+
+  def gravatar_hash
+    Digest::MD5.hexdigest(self.email.strip.downcase)
   end
 end
