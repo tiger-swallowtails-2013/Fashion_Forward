@@ -12,11 +12,9 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
-    @answer.user_id = current_user.id
-    @answer.save
+    @answer = current_user.answers.create(answer_params)
 
-    if @answer.persisted?
+    if @answer.valid?
       redirect_to question_answers_path
     else
       render 'new'
@@ -25,7 +23,7 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:body,:user_id,:question_id)
+    params.require(:answer).permit(:body,:question_id)
   end
 
 end
