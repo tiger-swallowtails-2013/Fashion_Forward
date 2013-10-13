@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :log_in
+  helper_method :current_user, :log_in, :log_out
 
   private
   def current_user
@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
 
   def log_in
     session[:user_id] = @user.id
+    redirect_to root_url
+  end
+
+  def log_out
+    session[:user_id] = nil
     redirect_to root_url
   end
 end
