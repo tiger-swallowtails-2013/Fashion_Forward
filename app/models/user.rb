@@ -28,4 +28,9 @@ class User < ActiveRecord::Base
   def gravatar_hash
     Digest::MD5.hexdigest(self.email.strip.downcase)
   end
+
+  def default_image
+    default_url = "http://devbootcamp.com/imgs/teaching-large-sherif.png"
+  end
+
 end
