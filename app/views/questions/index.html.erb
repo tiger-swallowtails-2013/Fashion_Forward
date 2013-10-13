@@ -1,3 +1,7 @@
+<a data-toggle="modal" href="#myModal" class= "btn btn-primary navbar-btn navbar-right">
+        <!-- change text dependent on page -->
+        WWSD if ...?
+</a>
 <div class = "questions">
   <h1>Questions</h1>
   <% @questions.each do |question| %>
@@ -13,3 +17,39 @@
   <%= link_to "New question", new_question_path %>
   </div>
 <% end %>
+
+
+
+
+
+
+       <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          
+  <%= form_for @question, html:{role:"form"} do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class:"form-control" %><%= @question.errors[:title].join(',') %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body, class:"form-control" %><br>
+    </div>
+    <%= f.submit %>
+  <% end %>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

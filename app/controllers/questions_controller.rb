@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
+    @question = Question.new
   end
 
   def show
@@ -12,7 +13,7 @@ class QuestionsController < ApplicationController
     @question.user_id = 1 #change once sessions has been enabled
 
     if @question.save
-      redirect_to @question
+      redirect_to question_answers_path(@question.id)
     else
       render 'new'
     end
