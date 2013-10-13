@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'yaml_db'
 gem 'thin'
+gem 'validates_email_format_of'
 
 group :test do
   gem 'guard-rspec'
