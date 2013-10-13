@@ -7,6 +7,13 @@ FactoryGirl.define do
     username Faker::Internet.user_name
     id 1
 
+
+    factory :invalid_user do
+      password ""
+      password_confirmation ""
+      username ""
+    end
+
     factory :user_with_answers do
       ignore do
         answer_count 5
