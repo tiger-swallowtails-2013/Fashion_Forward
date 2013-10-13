@@ -4,8 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:username])
-      .try(:authenticate, params[:password])
+    @user = User.authenticate(params[:username], params[:password])
     if @user
       log_in
     else

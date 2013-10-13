@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
   def gravatar_hash
     Digest::MD5.hexdigest(self.email.strip.downcase)
   end
+
+  def self.authenticate(username, password)
+    find_by(username: username).try(:authenticate, password)
+  end
 end
