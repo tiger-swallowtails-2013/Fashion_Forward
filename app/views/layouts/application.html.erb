@@ -12,6 +12,7 @@
     <div class="navbar-collapse navbar-ex1-collapse">
       <p class="navbar-text">
         <% if current_user %>
+          <%= image_tag("http://www.gravatar.com/avatar/#{current_user.gravatar_hash}?d=#{current_user.default_image}") %>
           <%= "Welcome, #{current_user.username}" %><br>
         <% end %>
       </p>

@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to question_answers_path(@question.id)
     else
-      render 'new'
+      redirect_to questions_path
     end
   end
 

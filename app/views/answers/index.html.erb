@@ -1,27 +1,71 @@
-<div class= "question">
-  <h1>Question</h1>
-  <%= @question.body %>
+<div class="jumbotron question">
+  <div class="container">
+    <div class="col-xs-12 col-md-10">
+    <h3><%= @question.title %></h3>
+      <p></p>
+      <p id="body"><%= @question.body %></p>
+    </div>
+    <div class=".col-xs-6 .col-md-2" >
+      <%= image_tag("http://www.gravatar.com/avatar/#{@question.user.gravatar_hash}?d=#{current_user.default_image}", :size => '120x120') %>
+      </br>
+      <%= @question.user.username %>
+    </div>
+    <% if current_user %>
+    <p><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg" id="ask">Answer</a></p>
+    <%end%>
+  </div>
 </div>
+
+
+
 
 <div class = "answers">
   <h2>Answers</h2>
+  <ul class="list-group">
   <% @answers.each do |answer| %>
-    <%= answer.body %>
-    | Votes: <%= answer.votes.count %>
-    <%= (button_to "vote", answer_votes_path(answer), {class:"button"}) if current_user && current_user.can_vote?(answer) %>
-    <br/>
+    <li class="list-group-item">
+      <span class="badge"><%= answer.votes.count %></span>
+      <%= answer.body %>
+      <p class= "vt-txt">Votes:<p>
+        <i class="icon-smile"></i>
+        <%= (button_to "vote me", answer_votes_path(answer), {class: "btn btn-primary icon-smile"}) if current_user && current_user.can_vote?(answer) %>
+    </li>
+    </br>
   <% end %>
+  <ul>
 </div>
 
-
-
-<% if current_user %>
-  <div class ="new_answer">
-    <%= link_to "New Answer",new_question_answer_path %>
-  </div>
-<% end %>
 
 <div>
-  <%= link_to "View all questions", questions_path %>
+  <%= link_to "View all questions", questions_path, {class:"all-q"}  %>
 </div>
+
+
+       <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Answer</h4>
+        </div>
+        <div class="modal-body">
+
+  <%= form_for @answer, html:{role:"form"} do |f| %>
+    <div class="form-group">
+      <%= f.label "what do you think Sherif would do?" %>
+      <%= f.text_area :body, class:"form-control" %>
+    </div>
+       <%=f.hidden_field :question_id, :value => @question.id %>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit value: "Answer", class:"btn btn-primary"%>
+    </div>
+  <% end %>
+
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
