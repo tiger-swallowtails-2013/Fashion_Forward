@@ -15,7 +15,7 @@
           <%= "Welcome, #{current_user.username}" %><br>
         <% end %>
       </p>
-      <button type="button" class="btn btn-default navbar-btn navbar-right">
+      <button type="button" class="btn btn-default navbar-btn navbar-right" id="navbar-button">
         <% if current_user %>
           <%= link_to 'Logout', logout_path %>
         <% else %>
@@ -30,13 +30,13 @@
 
   </div>
 
- 
+
 
 
   <nav class="navbar navbar-default navbar-fixed-bottom">
     <div id="footer" class="navbar-collapse navbar-ex1-collapse">
       <span> &#169; 2013 What Would Sherif Do (WWSD). All rights reserved.</span>
-  
+
     </div>
   </nav>
 </body>
