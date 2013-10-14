@@ -17,7 +17,9 @@
   </div>
 </div>
 
-
+<div>
+  <%= link_to "View all questions", questions_path, {class:"all-q"}  %>
+</div>  
 
 
 <div class = "answers">
@@ -37,9 +39,7 @@
 </div>
 
 
-<div>
-  <%= link_to "View all questions", questions_path, {class:"all-q"}  %>
-</div>
+
 
 
        <!-- Modal -->
@@ -52,17 +52,17 @@
         </div>
         <div class="modal-body">
 
-  <%= form_for @answer, html:{role:"form"} do |f| %>
-    <div class="form-group">
-      <%= f.label "what do you think Sherif would do?" %>
-      <%= f.text_area :body, class:"form-control" %>
-    </div>
-       <%=f.hidden_field :question_id, :value => @question.id %>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <%= f.submit value: "Answer", class:"btn btn-primary"%>
-    </div>
-  <% end %>
+          <%= form_for @answer, html:{role:"form"} do |f| %>
+            <div class="form-group">
+              <%= f.label "what do you think Sherif would do?" %>
+              <%= f.text_area :body, class:"form-control" %>
+            </div>
+               <%=f.hidden_field :question_id, :value => @question.id %>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= f.submit value: "Answer", class:"btn btn-primary"%>
+            </div>
+          <% end %>
 
         </div>
 
