@@ -6,9 +6,10 @@
       <p id="body"><%= @question.body %></p>
     </div>
     <div class=".col-xs-6 .col-md-2" >
+      <%= @question.user.username %>
       <%= image_tag("http://www.gravatar.com/avatar/#{@question.user.gravatar_hash}?d=#{current_user.default_image}", :size => '120x120') %>
       </br>
-      <%= @question.user.username %>
+
     </div>
     <% if current_user %>
     <p><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg" id="ask">Answer</a></p>
@@ -28,7 +29,7 @@
       <%= answer.body %>
       <p class= "vt-txt">Votes:<p>
         <i class="icon-smile"></i>
-        <%= (button_to "vote me", answer_votes_path(answer), {class: "btn btn-primary icon-smile"}) if current_user && current_user.can_vote?(answer) %>
+        <%= (button_to "vote me", answer_votes_path(answer), {class: "btn btn-primary"}) if current_user && current_user.can_vote?(answer) %>
     </li>
     </br>
   <% end %>
