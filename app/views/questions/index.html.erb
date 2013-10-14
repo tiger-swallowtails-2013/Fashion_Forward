@@ -1,14 +1,72 @@
-<div class = "questions">
-  <h1>Questions</h1>
-  <% @questions.each do |question| %>
-    <a href="/questions/<%= question.id %>/answers">
-    <%= question.title %></a><br/>
+
+<% if current_user %>
+<a data-toggle="modal" href="#myModal" class= "btn btn-primary pull-right btn-lg" id= "ask">
+        <!-- change text dependent on page -->
+        ASK
+</a>
+<%end%>
+<h2> What Would Sherif Do? </h2>
+<div class="panel-group questions" id="accordion">
+  <% @questions.each_with_index do |question, index| %>
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%=question.id%>">
+              <%= question.title %>
+            </a>
+          </h4>
+        </div>
+        <div id="<%=question.id%>" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p class= "acc-body"><%=question.body%></p>
+            <p class= "acc-ans"><a href="questions/<%=question.id%>/answers"><%= question.answers.count%> answers</a></p>
+            <p class= "acc-auth"><%=question.user.username%></p>
+          </div>
+        </div>
+      </div>
+<!--  <a href="/questions/<%= question.id %>/answers"></a> -->
   <% end %>
 </div>
 
-<br>
-<% if current_user %>
-  <div class="new_question">
-  <%= link_to "New question", new_question_path %>
-  </div>
-<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Ask What Would Sherif Do?</h4>
+        </div>
+        <div class="modal-body">
+
+  <%= form_for @question, html:{role:"form"} do |f| %>
+    <div class="form-group">
+      <%= f.label "what would he do if ..." %>
+      <%= f.text_field :title, class:"form-control" %><%= @question.errors[:title].join(',') %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Describe the situation" %>
+      <%= f.text_area :body, class:"form-control" %><br>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit value: "Ask", class:"btn btn-primary"%>
+    </div>
+  <% end %>
+
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

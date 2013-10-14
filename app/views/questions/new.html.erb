@@ -1,13 +1,15 @@
 <div class= "new_question">
   <%= form_for @question do |f| %>
-    <p>
+    <div class="form-group">
       <%= f.label :title %>
-      <%= f.text_field :title %><%= @question.errors[:title].join(',') %>
-    </p>
-    <p>
+      <%= f.text_field :title, class: "form-control" %><%= @question.errors[:title].join(',') %>
+    </div>
+
+    <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body %><br>
-    </p>
+    </div>
     <%= f.submit %>
   <% end %>
 </div>
+
