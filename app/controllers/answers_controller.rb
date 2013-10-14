@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
 
   def index
     @question = Question.find(params[:question_id])
+    @answer = Answer.new
     @answers = @question.answers
   end
 
@@ -15,12 +16,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
     @answer.save
-
-    if @answer.persisted?
-      redirect_to question_answers_path
-    else
-      render 'new'
-    end
+    redirect_to question_answers_path(params[:answer][:question_id])
   end
 
   private
