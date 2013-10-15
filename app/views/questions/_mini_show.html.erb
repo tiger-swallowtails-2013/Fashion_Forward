@@ -1,0 +1,16 @@
+<div class="panel draggable-question panel-default">
+ <div class="panel-heading">
+  <h4 class="panel-title">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%=question.id%>">
+      <%= question.title %>
+    </a>
+  </h4>
+</div>
+<div id="<%=question.id%>" class="panel-collapse collapse">
+  <div class="panel-body">
+    <p class= "acc-body"><%=question.body%></p>
+    <p class= "acc-ans"><a href="/questions/<%=question.id%>/answers"><%= question.answers.count%> answers</a></p>
+    <p class= "acc-auth"><%=question.user.username%></p>
+  </div>
+</div>
+</div>

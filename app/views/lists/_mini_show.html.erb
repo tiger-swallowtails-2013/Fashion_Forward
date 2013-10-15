@@ -1,3 +1,6 @@
 <div class="droppable-list well" id='list_<%= @list.id %>'>
   <h4><%= @list.name %></h4>
+  <% @list.questions.each do |question| %>
+      <%= render partial: 'mini_show', locals: {question: question} %>
+  <% end %>
 </div>
