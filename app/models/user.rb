@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     Digest::MD5.hexdigest(self.email.strip.downcase)
   end
 
-  def default_image
+  def self.default_image
     default_url = "http://devbootcamp.com/imgs/teaching-large-sherif.png"
   end
 
