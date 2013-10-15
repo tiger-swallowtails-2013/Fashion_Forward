@@ -19,11 +19,5 @@
 
 $(document).ready(function() {
   makeQuestionsDraggable()
-  makeListsDroppable()
-  createDynamicContainers()
-  // draggability
-  // droppability
-  // var total = 0
-  // incrementability(total)
-
+  new ListApp();
 })

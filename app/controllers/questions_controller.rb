@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     @question = Question.new
+    @lists = current_user.lists
   end
 
   def show

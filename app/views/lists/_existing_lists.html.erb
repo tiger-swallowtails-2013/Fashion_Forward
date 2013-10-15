@@ -1,0 +1,5 @@
+<% @lists.each do |list| %>
+  <% @list = list %>
+  <%= render partial: 'lists/mini_show', locals: {list: @list} %>
+<% end %>
+<% @list.name = ''%>
