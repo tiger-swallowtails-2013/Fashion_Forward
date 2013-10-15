@@ -20,6 +20,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+    render :json => ListQuestion.create(question_id: params[:id], list_id: params[:list_id]).to_json
+
+  end
+
   def new
     @question = Question.new
   end

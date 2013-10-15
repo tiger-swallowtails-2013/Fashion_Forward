@@ -14,7 +14,9 @@ Fashion::Application.routes.draw do
     resources :answers, only: [:index, :show, :new, :create]
   end
 
-  resources :lists, only: [:create]
+  resources :lists, only: [:create] do
+    resources :questions, only: :update
+  end
 
   root :to => 'questions#index'
 

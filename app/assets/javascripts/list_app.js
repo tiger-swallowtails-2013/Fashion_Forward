@@ -34,15 +34,30 @@ function List(element) {
 
 List.prototype.init = function() {
   this.makeListDroppable();
+  this.id = this.getListId();
 }
+
+List.prototype.getListId = function() {
+  return this.$element.attr('id').split('list_').slice(1)
+}
+
+
 
 List.prototype.makeListDroppable = function() {
   var self = this
   self.$element.droppable({
     drop: function(event, ui) {
       self.$element.append(ui.draggable.clone())
+      var questionId = ui.draggable.find('.panel-collapse').attr('id')
+      $.ajax({
+        url: '/lists/'+ self.id +'/questions/' + questionId,
+        type: 'PUT',
+        success: function() {}
+      });
     },
     tolerance: 'touch'
   })
 }
+
+
 
