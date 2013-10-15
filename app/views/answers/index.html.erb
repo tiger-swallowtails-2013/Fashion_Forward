@@ -7,7 +7,7 @@
     </div>
     <div class=".col-xs-6 .col-md-2" >
       <%= @question.user.username %>
-      <%= image_tag("http://www.gravatar.com/avatar/#{@question.user.gravatar_hash}?d=#{current_user.default_image}", :size => '120x120') %>
+      <%= image_tag("http://www.gravatar.com/avatar/#{@question.user.gravatar_hash}?d=#{User.default_image}", :size => '120x120') %>
       </br>
 
     </div>
