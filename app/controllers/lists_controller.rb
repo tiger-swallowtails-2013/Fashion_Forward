@@ -6,6 +6,12 @@ class ListsController < ApplicationController
 
     end
   end
+
+  def destroy
+    list = List.find(params[:id])
+    render :json => list.destroy.to_json
+  end
+
   private
 
   def list_params

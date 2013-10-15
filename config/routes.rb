@@ -14,7 +14,7 @@ Fashion::Application.routes.draw do
     resources :answers, only: [:index, :show, :new, :create]
   end
 
-  resources :lists, only: [:create] do
+  resources :lists, only: [:create, :destroy] do
     resources :questions, only: :update
   end
 

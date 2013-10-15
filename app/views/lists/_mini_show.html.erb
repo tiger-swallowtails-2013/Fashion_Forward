@@ -1,4 +1,6 @@
 <div class="droppable-list well" id='list_<%= @list.id %>'>
+  <%= link_to 'Delete', @list, method: 'delete', class: 'btn btn-danger pull-right btn-sm delete', remote: true %>
+  <!-- <a class= "btn btn-danger pull-right btn-sm">Delete</a> -->
   <h4><%= @list.name %></h4>
   <% @list.questions.each do |question| %>
       <%= render partial: 'mini_show', locals: {question: question} %>

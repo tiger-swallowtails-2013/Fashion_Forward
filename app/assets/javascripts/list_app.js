@@ -24,7 +24,8 @@ ListApp.prototype.addSuccessListener = function() {
 
 ListApp.prototype.appendList = function(evt, data, status) {
   var newList = new List(data)
-  $('.addable').append(newList.$element)
+  $('.addable').append(newList.$element.hide());
+  newList.$element.fadeIn()
 }
 
 function List(element) {
@@ -34,14 +35,20 @@ function List(element) {
 
 List.prototype.init = function() {
   this.makeListDroppable();
+  this.addDeleteListener();
   this.id = this.getListId();
+}
+
+List.prototype.addDeleteListener = function() {
+  var self = this
+  self.$element.find('.delete').on('ajax:success', function(evt, data, status) {
+    self.$element.fadeOut(function() { $(this).remove() })
+  })
 }
 
 List.prototype.getListId = function() {
   return this.$element.attr('id').split('list_').slice(1)
 }
-
-
 
 List.prototype.makeListDroppable = function() {
   var self = this
