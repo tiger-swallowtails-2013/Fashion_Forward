@@ -29,14 +29,3 @@ function tryToAddThingToList(e, ui){
   // console.log("sup")
 
 }
-
-
-$(document).ready(function() {
-  makeQuestionsDraggable()
-  makeListsDroppable()
-  // draggability
-  // droppability
-  // var total = 0
-  // incrementability(total)
-
-})

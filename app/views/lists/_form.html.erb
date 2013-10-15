@@ -1,0 +1,5 @@
+<%= form_for :list, url: lists_path, remote: true, html: { class: "adder" } do |f| %>
+  <%= f.label :name, 'New List' %>:
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

@@ -5,12 +5,15 @@
         ASK
 </a>
 <%end%>
-<div class="col-md-4 dropspace">
-  <h3> sup I'm a list </h3>
-  <div class="droppable-list well" id='should probably get one from user'>
-    drop stuff here
+
+<div class="col-md-4 dropspace dynamic-container">
+  <h3> sup I'm a list of lists</h3>
+  <div class="addable" id='should probably get one from user'>
+
   </div>
+  <%= render 'lists/form' %>
 </div>
+
 <div class="col-md-8">
   <h2> What Would Sherif Do If..? </h2>
   <div class="panel-group questions" id="accordion">
