@@ -1,32 +1,31 @@
-
 <% if current_user %>
-<a data-toggle="modal" href="#myModal" class= "btn btn-primary pull-right btn-lg" id= "ask">
-        <!-- change text dependent on page -->
-        ASK
-</a>
+  <a data-toggle="modal" href="#myModal" class= "btn btn-primary pull-right btn-lg" id= "ask">
+          <!-- change text dependent on page -->
+          ASK
+  </a>
 <%end%>
 
-<div class="col-md-4 dropspace dynamic-container">
-  <h3> sup I'm a list of lists</h3>
-  <div class="addable" id='should probably get one from user'>
-
+<% if current_user %>
+  <div class="col-md-4 dropspace dynamic-container">
+    <h3> My Lists </h3>
+    <%= render 'lists/form' %>
+    <%= render 'list' %>
   </div>
-  <%= render 'lists/form' %>
-</div>
+<% end %>
 
 <div class="col-md-8">
   <h2> What Would Sherif Do If..? </h2>
   <div class="panel-group questions" id="accordion">
     <% @questions.each_with_index do |question, index| %>
-      <div class="panel draggable-question panel-default">
+      <div id="<%=question.id%>" class="panel draggable-question panel-default">
          <div class="panel-heading">
           <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%=question.id%>">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#question<%=question.id%>">
               <%= question.title %>
             </a>
           </h4>
         </div>
-        <div id="<%=question.id%>" class="panel-collapse collapse">
+        <div id="question<%=question.id%>" class="panel-collapse collapse">
           <div class="panel-body">
             <p class= "acc-body"><%=question.body%></p>
             <p class= "acc-ans"><a href="/questions/<%=question.id%>/answers"><%= question.answers.count%> answers</a></p>
@@ -37,15 +36,6 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
        <!-- Modal -->

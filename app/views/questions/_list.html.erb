@@ -1,0 +1,17 @@
+<div class="addable">
+  <% unless @lists.nil? %>
+    <% @lists.each do |list| %>
+      <div class="droppable-list well list-name" id="<%= list.id %>">
+        <h4><%= list.name %></h4>
+        <% list.questions.each do |question| %>
+          <div>
+            <span>&#8855;</span>
+            <h7 class="lstd-ques">
+              <%= question.title %>
+            </h7>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
-<%= form_for :list, url: lists_path, remote: true, html: { class: "adder" } do |f| %>
-  <%= f.label :name, 'New List' %>:
+<%= form_for @list, url: lists_path, remote: true do |f| %>
   <%= f.text_field :name %>
-  <%= f.submit %>
+
+  <%= f.submit "Add List", class:"btn btn-default" %>
 <% end %>

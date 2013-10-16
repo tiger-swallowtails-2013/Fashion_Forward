@@ -1,31 +1,15 @@
-function DynamicContainer($elem){
+//listen to the form -- event ajax:success
+//get the new list
+//add the new list to the list of lists container
 
-  this.$elem = $elem
-  this.addSuccessListener()
+function addListenerToNewList() {
+  $("form.new_list").on("ajax:success", addList)
 }
 
-DynamicContainer.prototype.addSuccessListener = function(){
-  var self = this
-  self.adder().on("ajax:success", function(evt, data, status){
-    self.appendData(evt, data, status)
-  })
+function addList(e, data, status, xhr) {
+  var $newElement = $(data)
+  $("div.addable").append($newElement)
+  new DroppableList($newElement)
 }
 
-DynamicContainer.prototype.appendData = function(evt, data, status){
-  var newChild = $(data)
-  this.addable().append(newChild)
-}
 
-DynamicContainer.prototype.addable = function(){
-  return this.$elem.find(".addable")
-}
-
-DynamicContainer.prototype.adder = function(){
-  return this.$elem.find(".adder")
-}
-
-function createDynamicContainers(){
-  $('.dynamic-container').each(function(index, elem){
-    global = new DynamicContainer($(elem))
-  })
-}

@@ -38,8 +38,8 @@ body h2 {
   font-weight: 200;
 }
 
-#accordion {
-
+.pending {
+  opacity: .5;
 }
 
 #ask {
@@ -60,4 +60,16 @@ body h2 {
 
 #or {
   margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+div.list-name {
+  color:#428bca ;
+}
+
+h7.lstd-ques {
+  color: #777777;
 }

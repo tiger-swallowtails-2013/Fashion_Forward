@@ -1,7 +1,11 @@
 class QuestionsController < ApplicationController
   def index
+    @list = List.new
     @questions = Question.all
     @question = Question.new
+    if current_user
+      @lists = List.where("user_id =?", current_user.id)
+    end
   end
 
   def show
