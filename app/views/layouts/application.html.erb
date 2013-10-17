@@ -16,12 +16,17 @@
           <%= "Welcome, #{current_user.username}" %><br>
         <% end %>
       </p>
+
       <button type="button" class="btn btn-default navbar-btn navbar-right" id="navbar-button">
+      <% if controller_name == "sessions" && action_name == "new" %>
+        <%= link_to 'Back', root_path %>
+      <%else%>
         <% if current_user %>
           <%= link_to 'Logout', logout_path %>
         <% else %>
           <%= link_to 'Login', login_path %>
         <% end %>
+      <%end%>
       </button>
     </div><!-- /.navbar-collapse -->
   </nav>
